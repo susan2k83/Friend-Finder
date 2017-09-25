@@ -163,6 +163,31 @@
             </footer>
     
         </div>
+        <script type="text/javascript">
+
+        $(".submit").on("click", function(event){
+            event.preventDefault();
+
+            var newFriend = {
+                friendName: $("#name").val().trim(),
+                friendPhoto: $("#photo").val().trim()
+            };
+            console.log(newFriend);
+
+            // user input from the form gets stored in friends.js
+            $.post("/api/friends", newFriend, 
+                function(data){
+
+                    if (data) {
+                        alert("You have been added to our database");
+                    }
+            //  clears the form?
+                    $("#name").val("");
+                    $("#photo").val("");
+                })
+        })
+        
+        </script>
     
 </body>
 </html>

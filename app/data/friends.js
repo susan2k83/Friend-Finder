@@ -1,9 +1,10 @@
 var friendsArray = [
 {
-    "name" : "Ahmed",
+    "name" : "",
     "photo": "",
     "scores":[]
         
-      
   }
 ];
+
+module.exports = friendsArray;
