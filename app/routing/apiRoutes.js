@@ -1,43 +1,40 @@
 
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// 
 
 var friendsData = require("../data/friends.js");
 
-
-// ROUTING
-// 
-
 module.exports = function(app) {
-  // API GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // 
-// Used to display a json of possible friends
+  
   app.get("/api/friends", function(req, res) {
     res.json(friendsData);
   });
 
+  
+
 //   Used to handle incoming survey results. Also used to handle the compatibiltiy logic
-  app.post("/api/friends", function(req, res) {
+  // app.post("/api/friends", function(req, res) {
     
+  //     var bestMatch = {
+  //       name: "",
+  //       photo: "",
+  //       friendsDifference: 1000
+  //     }
+   
+  //   var userData = req.body;
+    
+  //   var userScore = userData.userScores;
 
-    if (friendsData.length < 5) {
-      friendsData.push(req.body);
-      res.json(true);
-    }
-    else {
-      friendsData.push(req.body);
-      res.json(false);
-    }
-  });
+  //   var totalDifference = 0;
+  // });
 
+   // Here we loop through all the friend possibilities in the database.
 
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
+    // We then loop through all the scores of each friend
+
+    // We calculate the difference between the scores and sum them into the totalDifference
+    // totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]))
+
+  
+  // clear data from table
 
   app.post("/api/clear", function() {
     // Empty out the arrays of data
